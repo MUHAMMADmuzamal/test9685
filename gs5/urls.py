@@ -2,6 +2,7 @@ from api import views
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
+from django.views.generic import TemplateView
 
 router = DefaultRouter()
 
@@ -11,7 +12,9 @@ router.register('majorapi' , views.major_api , basename="major_base")
 router.register('patientapi' , views.patient_api , basename="patient_base")
 
 urlpatterns = [
+   
     path('', include(router.urls)),
+     path('view',TemplateView.as_view('index.html')),
     path('admin/', admin.site.urls),
     path('pakistan/doctor/' , views.doctor_api),
     path('pakistan/doctor/<int:id>', views.doctor_api),
