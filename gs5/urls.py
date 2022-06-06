@@ -14,7 +14,7 @@ router.register('patientapi' , views.patient_api , basename="patient_base")
 urlpatterns = [
    
     path('', include(router.urls)),
-     path('view',TemplateView.as_view('index.html')),
+     path('view',TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
     path('pakistan/doctor/' , views.doctor_api),
     path('pakistan/doctor/<int:id>', views.doctor_api),
